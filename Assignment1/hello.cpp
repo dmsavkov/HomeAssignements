@@ -1,3 +1,7 @@
+// Author: Савков Дмитрий 25.Б81-мм
+// Contact: st140851@student.spbu.ru
+// Description: Implementation of print_hello function that greets the world and users
+
 #include <iostream>
 #include "hello.h"
 
