@@ -1,4 +1,4 @@
-PROJECT = hello_proj.o
+PROJECT = hello_proj
 CXX = g++
 CXXFLAGS = -Wall -Wextra
 SRC = main.cpp hello.cpp
