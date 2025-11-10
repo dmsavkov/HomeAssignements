@@ -44,3 +44,9 @@
 *.bin
 *.pdf
 anki.txt
+drafts/
+
+# executables
+/Assignment3/all_tests
+/Assignment3/transformers
+/Assignment2/file_worker
