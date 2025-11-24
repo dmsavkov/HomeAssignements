@@ -8,6 +8,7 @@
 #include "iostream_handler.h"
 #include <filesystem>
 #include <string>
+#include <cmath>
 
 bool validate_operation(int stack_size) {
     return stack_size >= 2;
@@ -35,11 +36,12 @@ int calculate() {
     }
 
     int array_size = file_size;
-    int* stack = new int[array_size];
+    double* stack = new double[array_size];
     int stack_size = 0;
 
     for (int i = 0; i < array_size; ++i) {
         char element = array[i];
+        std::cout << "Processing element: " << element << std::endl;
         bool is_op = is_operator(element);
 
         if (is_op) {
@@ -49,9 +51,9 @@ int calculate() {
                 delete[] stack;
                 return ERROR_RETURN;
             }
-            int b = stack[--stack_size];
-            int a = stack[--stack_size];
-            int result;
+            double b = stack[--stack_size];
+            double a = stack[--stack_size];
+            double result;
             char op = element;
 
             std::cout << "Performing: " << a << " " << op << " " << b << std::endl;
@@ -77,11 +79,21 @@ int calculate() {
             }
 
             stack[stack_size++] = result;
+            std::cout << "Pushed result: " << result << std::endl;
         } else if (element >= '0' && element <= '9') {
-            int number = 0;
+            double number = 0;
+            bool is_floating = false;
+            int j = 0;
             
-            while (i < file_size && array[i] >= '0' && array[i] <= '9') {
-                number = number * 10 + (array[i] - '0');
+            while (i < file_size && ((array[i] >= '0' && array[i] <= '9') || array[i] == '.')) {
+                if (array[i] == '.') {
+                    is_floating = true;
+                } else if (!is_floating) {
+                    number = number * 10 + (array[i] - '0');
+                } else {
+                    j++;
+                    number += (array[i] - '0') * pow(10, -j);
+                }
                 i++;
             }
             i--; 
@@ -99,7 +111,7 @@ int calculate() {
         return ERROR_RETURN;
     }
 
-    int result = stack[0];
+    double result = stack[stack_size - 1];
     delete[] stack;
 
     std::cout << "Calculation result: " << result << std::endl;
