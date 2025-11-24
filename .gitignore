@@ -49,4 +49,5 @@ drafts/
 # executables
 /Assignment3/all_tests
 /Assignment3/transformers
-/Assignment2/file_worker
+/Assignment2/assignment_a/file_inverter
+/Assignment2/assignment_b/calculator
