@@ -1,9 +1,9 @@
 // Author: Савков Дмитрий 25.Б81-мм
 // Contact: st140851@student.spbu.ru
-// Description: Minibot class declaration - small agile Transformer for reconnaissance missions
+// Description: Mission class declaration
 
-#ifndef MINIBOT_H
-#define MINIBOT_H
+#ifndef MISSION_H
+#define MISSION_H
 
 #include <string>
 
