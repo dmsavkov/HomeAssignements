@@ -1,8 +1,10 @@
-PROJECT = file_worker
+PROJECT = calculator
 CXX = g++
 CXXFLAGS = -Wall -Wextra
-SRC = main.cpp file_manager.cpp iostream_handler.cpp calculator.cpp
-
+COMMON_DIR = ../common
+SRC = main.cpp ${COMMON_DIR}/file_manager.cpp ${COMMON_DIR}/iostream_handler.cpp  \
+				${COMMON_DIR}/calculator.cpp
+	
 OBJ = $(SRC:.cpp=.o) 
 
 all: $(PROJECT)

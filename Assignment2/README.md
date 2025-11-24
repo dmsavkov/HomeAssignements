@@ -14,8 +14,10 @@ Home assignment 2 - Binary file reversal and Reverse Polish Notation (RPN) calcu
 
 ## Build
 
-make
+a) cd assignment_a && make
+b) cd assignment_b && make
 
 ## Run
 
-./file_worker
+a) cd assignment_a && ./file_inverter
+b) cd assignment_b && ./file_calculator

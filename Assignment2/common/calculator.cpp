@@ -25,6 +25,8 @@ int calculate() {
     int ERROR_RETURN = -99999;
     std::filesystem::path path = get_file_name();
     int file_size = std::filesystem::file_size(path);
+
+    // Expects a binary input file. 
     char* array = get_array_from_file(path, file_size);
 
     if (!array) {

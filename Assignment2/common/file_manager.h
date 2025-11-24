@@ -5,7 +5,6 @@
 #ifndef FILE_MANAGER_H
 #define FILE_MANAGER_H
 
-#include <iostream>
 #include <filesystem>
 
 char* get_array_from_file(const std::filesystem::path& path, int size);
