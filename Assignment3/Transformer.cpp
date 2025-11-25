@@ -11,6 +11,16 @@ Transformer::Transformer(const std::string& name, int strength, double speed,
       mainWeapon(weapon),
       curMission(mission) {}
 
+// Overloading constructor - the same: simply rewrite.
+// Delegating initialization for the default constructor. 
+Transformer::Transformer(const std::string& name, int strength, double speed) : 
+    Transformer(name, strength, speed, "Default Vehicle", Weapon("Default Blaster", 10), nullptr) {}
+        
+// Example with a different type for speed.
+Transformer::Transformer(const std::string& name, int strength, int speed,
+        const std::string& vehicleType, const Weapon& weapon, Mission* mission) : 
+    Transformer(name, strength, static_cast<double>(speed), vehicleType, weapon, mission) {}
+
 Transformer::~Transformer() {}
 
 void Transformer::transform() {

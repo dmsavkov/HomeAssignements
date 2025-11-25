@@ -92,3 +92,24 @@ TEST_F(TransformerTest, TestMissionStreamOperator) {
     EXPECT_NE(output.find("Mission: Defend Earth"), std::string::npos);
     EXPECT_NE(output.find("Difficulty: 5"), std::string::npos);
 }
+
+TEST_F(TransformerTest, TestOverloadingConstr) {
+    Transformer t1("Jazz", 90, 80.0);
+    EXPECT_EQ(t1.getName(), "Jazz");
+    EXPECT_EQ(t1.getStrength(), 90);
+    EXPECT_DOUBLE_EQ(t1.getSpeed(), 80.0);
+    EXPECT_EQ(t1.getVehicleType(), "Default Vehicle");
+    EXPECT_EQ(t1.getMainWeapon().getName(), "Default Blaster");
+    EXPECT_EQ(t1.getMainWeapon().getDamage(), 10);
+    EXPECT_EQ(t1.getCurrentMission(), nullptr);
+
+    Transformer t2("Ironhide", 95, 70,
+                   "SUV", Weapon("Laser Rifle", 45), nullptr);
+    EXPECT_EQ(t2.getName(), "Ironhide");
+    EXPECT_EQ(t2.getStrength(), 95);
+    EXPECT_DOUBLE_EQ(t2.getSpeed(), 70.0);
+    EXPECT_EQ(t2.getVehicleType(), "SUV");
+    EXPECT_EQ(t2.getMainWeapon().getName(), "Laser Rifle");
+    EXPECT_EQ(t2.getMainWeapon().getDamage(), 45);
+    EXPECT_EQ(t2.getCurrentMission(), nullptr);
+}

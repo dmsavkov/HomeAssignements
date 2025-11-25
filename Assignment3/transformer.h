@@ -27,6 +27,10 @@ class Transformer {
                 const std::string& vehicleType, const Weapon& weapon, Mission* mission);
         ~Transformer();
 
+        Transformer(const std::string& name, int strength, double speed);
+        Transformer(const std::string& name, int strength, int speed,
+                const std::string& vehicleType, const Weapon& weapon, Mission* mission);
+
         // Preferably friend cuz getters for public API and << is more internal. 
         // Without friend t isn't needed: internal "this" exists.
         friend std::ostream& operator<<(std::ostream& out, const Transformer& t);
