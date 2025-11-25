@@ -63,5 +63,32 @@ TEST_F(TransformerTest, TestStdout) {
     transformer->displayStatus();
     output = testing::internal::GetCapturedStdout();
     EXPECT_NE(output.find("Transformer: Optimus Prime"), std::string::npos);
+
+    testing::internal::CaptureStdout();
+    std::cout << *transformer;
+    output = testing::internal::GetCapturedStdout();
+    EXPECT_NE(output.find("I'm Optimus Prime!"), std::string::npos);
 }
 
+TEST_F(TransformerTest, TestWeaponStreamOperator) {
+    Weapon weapon = transformer->getMainWeapon();
+    
+    testing::internal::CaptureStdout();
+    std::cout << weapon;
+    std::string output = testing::internal::GetCapturedStdout();
+    
+    EXPECT_NE(output.find("Weapon: Ion Blaster"), std::string::npos);
+    EXPECT_NE(output.find("Damage: 50"), std::string::npos);
+}
+
+TEST_F(TransformerTest, TestMissionStreamOperator) {
+    Mission* mission = transformer->getCurrentMission();
+    ASSERT_NE(mission, nullptr);
+    
+    testing::internal::CaptureStdout();
+    std::cout << *mission;
+    std::string output = testing::internal::GetCapturedStdout();
+    
+    EXPECT_NE(output.find("Mission: Defend Earth"), std::string::npos);
+    EXPECT_NE(output.find("Difficulty: 5"), std::string::npos);
+}

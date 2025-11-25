@@ -11,6 +11,7 @@
 #include "mission.h"
 #include <iostream>
 
+
 class Transformer {
     private:
         std::string name;
@@ -25,6 +26,10 @@ class Transformer {
         Transformer(const std::string& name, int strength, double speed,
                 const std::string& vehicleType, const Weapon& weapon, Mission* mission);
         ~Transformer();
+
+        // Preferably friend cuz getters for public API and << is more internal. 
+        // Without friend t isn't needed: internal "this" exists.
+        friend std::ostream& operator<<(std::ostream& out, const Transformer& t);
 
         void transform();
         bool isTransformed() const;

@@ -87,3 +87,8 @@ void Transformer::setMainWeapon(const Weapon& w) {
 void Transformer::setCurrentMission(Mission* m) {
     curMission = m;
 }
+
+std::ostream &operator << (std::ostream &out, const Transformer &t) {
+    out << "I'm " << t.name << "!" << "\n";
+    return out;
+}
