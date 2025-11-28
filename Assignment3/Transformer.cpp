@@ -104,9 +104,6 @@ std::ostream &operator << (std::ostream &out, const Transformer &t) {
 }
 
 // Pure virtual shouldn't be implemented.
-void Transformer::specialAbility() {
-    std::cout << "Transformer " + name + " uses special ability!";
-}
 
 void Transformer::attack() {
     std::cout << "Transformer " + name + " attacking!";

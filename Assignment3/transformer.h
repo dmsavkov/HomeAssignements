@@ -55,7 +55,7 @@ class Transformer {
         void setMainWeapon(const Weapon& weapon);
         void setCurrentMission(Mission* mission);
 
-        virtual void specialAbility();
+        virtual void specialAbility() = 0;
         virtual void attack(); 
 };
 
