@@ -16,6 +16,7 @@ public:
     Decepticon(std::string name, int strength, double speed,
                std::string vehicleType, Weapon mainWeapon, Mission* curMission,
                int ruthlessness);
+    Decepticon(const std::string name, int strength, double speed, int ruthlessness);
     ~Decepticon();
 
     int getRuthlessness();

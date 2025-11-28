@@ -7,6 +7,10 @@ Autobot::Autobot(std::string name, int strength, double speed,
     : Transformer(name, strength, speed, vehicleType, mainWeapon, curMission),
       loyalty(loyalty) {}
 
+Autobot::Autobot(std::string name, int strength, double speed, int loyalty)
+    : Transformer(name, strength, speed), 
+      loyalty(loyalty) {}
+
 Autobot::~Autobot() {}
 
 int Autobot::getLoyalty() const {

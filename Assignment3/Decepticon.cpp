@@ -7,6 +7,10 @@ Decepticon::Decepticon(std::string name, int strength, double speed,
     : Transformer(name, strength, speed, vehicleType, mainWeapon, curMission),
       ruthlessness(ruthlessness) {}
 
+Decepticon::Decepticon(std::string name, int strength, double speed, int ruthlessness)
+    : Transformer(name, strength, speed), 
+      ruthlessness(ruthlessness) {}
+
 Decepticon::~Decepticon() {}
 
 int Decepticon::getRuthlessness() {
