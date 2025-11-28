@@ -1,6 +1,6 @@
 // Author: Савков Дмитрий 25.Б81-мм
 // Contact: st140851@student.spbu.ru
-// Description: Base Transformer class declaration - represents a transforming robot with weapon and mission
+// Description: Abstract base Transformer class declaration - represents a transforming robot with weapon and mission
 
 #ifndef TRANSFORMER_H
 #define TRANSFORMER_H
