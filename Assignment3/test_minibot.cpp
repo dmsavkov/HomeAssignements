@@ -55,3 +55,15 @@ TEST_F(MinibotTest, TestMethods) {
     output = testing::internal::GetCapturedStdout();
     EXPECT_NE(output.find("is scouting the area"), std::string::npos);
 }
+
+TEST_F(MinibotTest, TestOverloadingConstr) {
+    Minibot t1("Jazz", 90, 80.0, 100);
+    EXPECT_EQ(t1.getName(), "Jazz");
+    EXPECT_EQ(t1.getStrength(), 90);
+    EXPECT_DOUBLE_EQ(t1.getSpeed(), 80.0);
+    EXPECT_DOUBLE_EQ(t1.getAgility(), 100);
+    EXPECT_EQ(t1.getVehicleType(), "Default Vehicle");
+    EXPECT_EQ(t1.getMainWeapon().getName(), "Default Blaster");
+    EXPECT_EQ(t1.getMainWeapon().getDamage(), 10);
+    EXPECT_EQ(t1.getCurrentMission(), nullptr);
+}

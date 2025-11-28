@@ -7,6 +7,10 @@ Decepticon::Decepticon(std::string name, int strength, double speed,
     : Transformer(name, strength, speed, vehicleType, mainWeapon, curMission),
       ruthlessness(ruthlessness) {}
 
+Decepticon::Decepticon(std::string name, int strength, double speed, int ruthlessness)
+    : Transformer(name, strength, speed), 
+      ruthlessness(ruthlessness) {}
+
 Decepticon::~Decepticon() {}
 
 int Decepticon::getRuthlessness() {
@@ -24,4 +28,12 @@ void Decepticon::updateRuthlessness(int amount) {
 void Decepticon::intimidate() {
     std::cout << getName() << " is intimidating the enemy with ruthlessness " 
               << ruthlessness << "!" << std::endl;
+}
+
+void Decepticon::attack() {
+    std::cout << "Decepticon " + getName() + " attacking!" << std::endl;
+}
+
+void Decepticon::specialAbility() {
+    std::cout << "Decepticon " + getName() + " uses special ability: Ruthless Strike!" << std::endl;
 }

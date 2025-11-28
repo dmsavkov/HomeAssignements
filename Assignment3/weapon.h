@@ -6,6 +6,7 @@
 #define WEAPON_H
 
 #include <string>
+#include <iostream>
 
 class Weapon {
 private:
@@ -21,6 +22,8 @@ public:
 
     void setName(std::string n);
     void setDamage(int d);
+
+    friend std::ostream& operator<<(std::ostream& out, const Weapon& w);
 };
 
-#endif 
+#endif

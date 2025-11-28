@@ -12,6 +12,7 @@ public:
     Minibot(std::string name, int strength, double speed,
             std::string vehicleType, Weapon mainWeapon, Mission* curMission,
             double agility);
+    Minibot(const std::string name, int strength, double speed, double agility);
     ~Minibot();
 
     double getAgility();
@@ -19,6 +20,10 @@ public:
 
     void performRecon();
     void scout();
+
+    // Override is optional. Just for safety.
+    void attack() override;
+    void specialAbility() override;
 };
 
 #endif

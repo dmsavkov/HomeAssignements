@@ -73,3 +73,15 @@ TEST_F(DecepticonTest, TestStdout) {
     EXPECT_NE(output3.find("Megatron"), std::string::npos);
     EXPECT_NE(output3.find("intimidating"), std::string::npos);
 }
+
+TEST_F(DecepticonTest, TestOverloadingConstr) {
+    Decepticon t1("Jazz", 90, 80.0, 100);
+    EXPECT_EQ(t1.getName(), "Jazz");
+    EXPECT_EQ(t1.getStrength(), 90);
+    EXPECT_DOUBLE_EQ(t1.getSpeed(), 80.0);
+    EXPECT_EQ(t1.getRuthlessness(), 100);
+    EXPECT_EQ(t1.getVehicleType(), "Default Vehicle");
+    EXPECT_EQ(t1.getMainWeapon().getName(), "Default Blaster");
+    EXPECT_EQ(t1.getMainWeapon().getDamage(), 10);
+    EXPECT_EQ(t1.getCurrentMission(), nullptr);
+}

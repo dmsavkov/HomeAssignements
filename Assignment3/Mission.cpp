@@ -20,3 +20,8 @@ void Mission::setDescription(std::string d) {
 void Mission::setDifficulty(int d) {
     difficulty = d;
 }
+
+std::ostream& operator<<(std::ostream& out, const Mission& m) {
+    out << "Mission: " << m.description << " (Difficulty: " << m.difficulty << ")";
+    return out;
+}

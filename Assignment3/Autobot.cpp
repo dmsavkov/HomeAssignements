@@ -7,6 +7,10 @@ Autobot::Autobot(std::string name, int strength, double speed,
     : Transformer(name, strength, speed, vehicleType, mainWeapon, curMission),
       loyalty(loyalty) {}
 
+Autobot::Autobot(std::string name, int strength, double speed, int loyalty)
+    : Transformer(name, strength, speed), 
+      loyalty(loyalty) {}
+
 Autobot::~Autobot() {}
 
 int Autobot::getLoyalty() const {
@@ -23,4 +27,12 @@ void Autobot::updateLoyalty(int amount) {
 
 void Autobot::shieldAlly() {
     std::cout << getName() << " is shielding an ally!" << std::endl;
+}
+
+void Autobot::attack() {
+    std::cout << "Autobot " + getName() + " attacking!" << std::endl;
+}
+
+void Autobot::specialAbility() {
+    std::cout << "Autobot " + getName() + " uses special ability: Courage Boost!" << std::endl;
 }

@@ -16,6 +16,7 @@ public:
     Autobot(std::string name, int strength, double speed,
             std::string vehicleType, Weapon mainWeapon, Mission* curMission,
             int loyalty);
+    Autobot(const std::string name, int strength, double speed, int loyalty);
     ~Autobot();
 
     int getLoyalty() const;
@@ -24,6 +25,9 @@ public:
     void updateLoyalty(int amount);
 
     void shieldAlly();
+
+    void attack() override;
+    void specialAbility() override;
 };
 
 #endif

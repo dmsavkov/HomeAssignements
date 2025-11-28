@@ -10,7 +10,7 @@ st140851@student.spbu.ru
 
 ## Description
 
-Object-oriented C++ program implementing Transformers using inheritance. Features base Transformer class with three derived classes (Autobot, Decepticon, Minibot), each with unique attributes and behaviors. Includes composition with Weapon and Mission classes. Comprehensive unit testing with Google Test framework covering all functionality.
+Object-oriented C++ program implementing Transformers using inheritance. Features abstract Transformer class with virtual methods include one pure virtual, and three derived classes (Autobot, Decepticon, Minibot). Includes operator<< overloading, constructor delegation, and polymorphic behavior with virtual methods. Comprehensive unit testing with Google Test framework covering all functionality.
 
 ## Build
 

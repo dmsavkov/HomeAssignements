@@ -25,7 +25,7 @@ int main() {
 
     std::cout << "Transformers: " << std::endl;
     for (auto& transformer : transformers) {
-        std::cout << transformer->getName() << "\n";
+        std::cout << *transformer;
     }
 
     return 0;

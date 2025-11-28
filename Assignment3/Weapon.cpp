@@ -20,3 +20,8 @@ void Weapon::setName(std::string n) {
 void Weapon::setDamage(int d) {
     damage = d;
 }
+
+std::ostream& operator<<(std::ostream& out, const Weapon& w) {
+    out << "Weapon: " << w.name << " (Damage: " << w.damage << ")";
+    return out;
+}

@@ -6,6 +6,7 @@
 #define MISSION_H
 
 #include <string>
+#include <iostream>
 
 class Mission {
 private:
@@ -21,6 +22,8 @@ public:
 
     void setDescription(std::string d);
     void setDifficulty(int d);
+
+    friend std::ostream& operator<<(std::ostream& out, const Mission& m);
 };
 
 #endif
