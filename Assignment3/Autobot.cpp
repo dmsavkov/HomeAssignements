@@ -28,3 +28,11 @@ void Autobot::updateLoyalty(int amount) {
 void Autobot::shieldAlly() {
     std::cout << getName() << " is shielding an ally!" << std::endl;
 }
+
+void Autobot::attack() {
+    std::cout << "Autobot " + getName() + " attacking!" << std::endl;
+}
+
+void Autobot::specialAbility() {
+    std::cout << "Autobot " + getName() + " uses special ability: Courage Boost!" << std::endl;
+}

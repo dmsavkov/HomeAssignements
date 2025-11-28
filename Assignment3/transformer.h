@@ -25,7 +25,7 @@ class Transformer {
     public:
         Transformer(const std::string& name, int strength, double speed,
                 const std::string& vehicleType, const Weapon& weapon, Mission* mission);
-        ~Transformer();
+        virtual ~Transformer();
 
         Transformer(const std::string& name, int strength, double speed);
         Transformer(const std::string& name, int strength, int speed,
@@ -54,6 +54,9 @@ class Transformer {
         void setVehicleType(const std::string& vehicleType);
         void setMainWeapon(const Weapon& weapon);
         void setCurrentMission(Mission* mission);
+
+        virtual void specialAbility();
+        virtual void attack(); 
 };
 
 #endif

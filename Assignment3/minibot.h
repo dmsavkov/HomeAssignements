@@ -20,6 +20,10 @@ public:
 
     void performRecon();
     void scout();
+
+    // Override is optional. Just for safety.
+    void attack() override;
+    void specialAbility() override;
 };
 
 #endif

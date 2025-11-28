@@ -24,6 +24,9 @@ public:
 
     void updateRuthlessness(int amount);
     void intimidate();
+
+    void attack() override;
+    void specialAbility() override;
 };
 
 #endif

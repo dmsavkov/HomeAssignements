@@ -25,6 +25,9 @@ public:
     void updateLoyalty(int amount);
 
     void shieldAlly();
+
+    void attack() override;
+    void specialAbility() override;
 };
 
 #endif

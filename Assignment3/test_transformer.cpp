@@ -1,5 +1,8 @@
 #include <gtest/gtest.h>
 #include "transformer.h"
+#include "autobot.h"
+#include "decepticon.h"
+#include "minibot.h"
 
 class TransformerTest : public ::testing::Test {
 protected:
@@ -112,4 +115,41 @@ TEST_F(TransformerTest, TestOverloadingConstr) {
     EXPECT_EQ(t2.getMainWeapon().getName(), "Laser Rifle");
     EXPECT_EQ(t2.getMainWeapon().getDamage(), 45);
     EXPECT_EQ(t2.getCurrentMission(), nullptr);
+}
+
+void testVirtualAttack(Transformer *transformer, std::string className) {
+    testing::internal::CaptureStdout();
+    transformer->attack();
+    std::string output = testing::internal::GetCapturedStdout();
+    EXPECT_NE(output.find(className + " " + transformer->getName() + " attacking!"), std::string::npos);
+}
+
+void testVirtualSpecialAbility(Transformer *transformer, std::string className) {
+    testing::internal::CaptureStdout();
+    transformer->specialAbility();
+    std::string output = testing::internal::GetCapturedStdout();
+    EXPECT_NE(output.find(className + " " + transformer->getName() + " uses special ability"), std::string::npos);
+}
+
+TEST_F(TransformerTest, TestVirtualMethods) {
+    testVirtualAttack(transformer, "Transformer");
+    // Pure virtual special ability isn't tested.
+
+    Transformer* t;
+
+    Autobot autobot("Bumblebee", 80, 65.0, 100);
+    t = &autobot; // Virtual implements polymorphism
+    // t->getLoyalty(); - cannot access because it's Transformer!
+    testVirtualAttack(t, "Autobot");
+    testVirtualSpecialAbility(t, "Autobot");
+
+    Decepticon decepticon("Megatron", 100, 80.0, 150);
+    t = &decepticon;
+    testVirtualAttack(t, "Decepticon");
+    testVirtualSpecialAbility(t, "Decepticon");
+
+    Minibot minibot("Cliffjumper", 70, 90.0, 85.0);
+    t = &minibot;
+    testVirtualAttack(t, "Minibot");
+    testVirtualSpecialAbility(t, "Minibot");
 }

@@ -29,3 +29,11 @@ void Minibot::performRecon() {
 void Minibot::scout() {
     std::cout << getName() << " is scouting the area!" << std::endl;
 }
+
+void Minibot::attack() {
+    std::cout << "Minibot " + getName() + " attacking!" << std::endl;
+}
+
+void Minibot::specialAbility() {
+    std::cout << "Minibot " + getName() + " uses special ability: Swift Strike!" << std::endl;
+}

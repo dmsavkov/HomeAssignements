@@ -29,3 +29,11 @@ void Decepticon::intimidate() {
     std::cout << getName() << " is intimidating the enemy with ruthlessness " 
               << ruthlessness << "!" << std::endl;
 }
+
+void Decepticon::attack() {
+    std::cout << "Decepticon " + getName() + " attacking!" << std::endl;
+}
+
+void Decepticon::specialAbility() {
+    std::cout << "Decepticon " + getName() + " uses special ability: Ruthless Strike!" << std::endl;
+}
