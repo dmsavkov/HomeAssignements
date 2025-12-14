@@ -1,29 +1,29 @@
-// Author: Савков Дмитрий 25.Б81-мм
-// Contact: st140851@student.spbu.ru
-// Description: Mission class declaration
-
-#ifndef MISSION_H
-#define MISSION_H
+#ifndef MINIBOT_H
+#define MINIBOT_H
 
 #include <string>
-#include <iostream>
+#include "transformer.h"
 
-class Mission {
+class Minibot : public Transformer {
 private:
-    std::string description;
-    int difficulty;
+    double agility;
 
 public:
-    Mission(std::string description, int difficulty);
-    ~Mission();
+    Minibot(std::string name, int strength, double speed,
+            std::string vehicleType, Weapon mainWeapon, Mission* curMission,
+            double agility);
+    Minibot(const std::string name, int strength, double speed, double agility);
+    ~Minibot();
 
-    std::string getDescription();
-    int getDifficulty();
+    double getAgility();
+    void setAgility(double a);
 
-    void setDescription(std::string d);
-    void setDifficulty(int d);
+    void performRecon();
+    void scout();
 
-    friend std::ostream& operator<<(std::ostream& out, const Mission& m);
+    // Override is optional. Just for safety.
+    void attack() override;
+    void specialAbility() override;
 };
 
 #endif
